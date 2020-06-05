@@ -1,5 +1,7 @@
 package com.pers.daisp.class4;
 
+import com.pers.daisp.util.LogUtil;
+
 import java.io.IOException;
 import java.net.Inet4Address;
 import java.net.InetSocketAddress;
@@ -14,6 +16,13 @@ public class Client {
         Socket socket = createSocket();
 
         initSocket(socket);
+
+        socket.connect(new InetSocketAddress(Inet4Address.getLocalHost(), PORT));
+
+        LogUtil.log("服务端启动完成.");
+
+        //同Class2代码
+
     }
 
     private static void initSocket(Socket socket) throws SocketException {
